@@ -40,15 +40,43 @@
       <!-- Start header -->
       <header>
         <h1>100DaysOfCode Scheduler</h1>
-        <p>A tool for generating a schedule for your next 100DaysOfCode Challenge attempt</p>
+        <p>Create a schedule for your next challenge attempt.</p>
       </header> 
       <!-- End header -->
       <!-- Start main -->
       <main>
-        <label for="start">Start date:</label>
-        <input type="date" id="start" name="start"
-              value="2021-08-16"
-              min="2020-01-01" max="2025-12-31">
+        <div class="start-date">
+          <label for="start">Start date:</label>
+          <input type="date" id="start" name="start"
+                value="2021-08-16"
+                min="2020-01-01" max="2025-12-31">
+        </div>
+        <div class="days-off">
+          <h3>Regular days off?</h3>
+          <input type="checkbox" name="monday" id="monday">
+          <label for="monday">Monday</label>
+          <input type="checkbox" name="tuesday" id="tuesday">
+          <label for="tuesday">Tuesday</label>
+          <input type="checkbox" name="wednesday" id="wednesday">
+          <label for="wednesday">Wednesday</label>
+          <input type="checkbox" name="thursday" id="thursday">
+          <label for="thursday">Thursday</label>
+          <input type="checkbox" name="friday" id="friday">
+          <label for="friday">Friday</label>
+          <input type="checkbox" name="saturday" id="saturday">
+          <label for="saturday">Saturday</label>
+          <input type="checkbox" name="sunday" id="sunday">
+          <label for="sunday">Sunday</label>
+        </div>
+        <div class="button-wrapper">
+          <button>Generate Schedule</button>
+        </div>
+        <label for="story">Tell us your story:</label>
+        <div class="textarea-wrapper">
+          <textarea id="story" name="story" rows="5" cols="33">
+          </textarea>
+        </div>
+
       </main>
       <!-- End main -->
       <!-- Start footer -->
