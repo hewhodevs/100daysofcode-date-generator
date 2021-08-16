@@ -45,38 +45,55 @@
       <!-- End header -->
       <!-- Start main -->
       <main>
+        <!-- Start .start-date -->
         <div class="start-date">
-          <label for="start">Start date:</label>
-          <input type="date" id="start" name="start"
+          <label class="start-date__label" for="start">Start date:</label>
+          <input class="start-date__input" type="date" id="start" name="start"
                 value="2021-08-16"
                 min="2020-01-01" max="2025-12-31">
         </div>
+        <!-- End .start-date -->
+        <!-- Start .days-off -->
         <div class="days-off">
           <h3>Regular days off?</h3>
-          <input type="checkbox" name="monday" id="monday">
-          <label for="monday">Monday</label>
-          <input type="checkbox" name="tuesday" id="tuesday">
-          <label for="tuesday">Tuesday</label>
-          <input type="checkbox" name="wednesday" id="wednesday">
-          <label for="wednesday">Wednesday</label>
-          <input type="checkbox" name="thursday" id="thursday">
-          <label for="thursday">Thursday</label>
-          <input type="checkbox" name="friday" id="friday">
-          <label for="friday">Friday</label>
-          <input type="checkbox" name="saturday" id="saturday">
-          <label for="saturday">Saturday</label>
-          <input type="checkbox" name="sunday" id="sunday">
-          <label for="sunday">Sunday</label>
+          <div class="day-off">
+            <input type="checkbox" name="monday" id="monday">
+            <label for="monday">Monday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="tuesday" id="tuesday">
+            <label for="tuesday">Tuesday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="wednesday" id="wednesday">
+            <label for="wednesday">Wednesday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="thursday" id="thursday">
+            <label for="thursday">Thursday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="friday" id="friday">
+            <label for="friday">Friday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="saturday" id="saturday">
+            <label for="saturday">Saturday</label>
+          </div>
+          <div class="day-off">
+            <input type="checkbox" name="sunday" id="sunday">
+            <label for="sunday">Sunday</label>
+          </div>
         </div>
+        <!-- End .days-off -->
         <div class="button-wrapper">
           <button>Generate Schedule</button>
         </div>
-        <label for="story">Tell us your story:</label>
+        <label for="schedule">Your 100DaysOfCode Challenge Schedule:</label>
         <div class="textarea-wrapper">
-          <textarea id="story" name="story" rows="5" cols="33">
+          <textarea class="schedule" id="schedule" name="schedule" rows="5" cols="40">
           </textarea>
         </div>
-
       </main>
       <!-- End main -->
       <!-- Start footer -->

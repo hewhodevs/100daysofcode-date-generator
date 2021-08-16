@@ -1,0 +1,20 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+.start-date__input {
+  font-size: 1rem;
+}
+.button-wrapper {
+  margin: 20px 0px;
+}
+.button-wrapper > button {
+  padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #e8e8e8;
+}
+.schedule {
+  margin-top: 10px;
+}
