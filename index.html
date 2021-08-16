@@ -57,31 +57,31 @@
         <div class="days-off">
           <h3>Regular days off?</h3>
           <div class="day-off">
-            <input type="checkbox" name="monday" id="monday">
+            <input class="day-off__input" type="checkbox" name="monday" id="monday" value="1">
             <label for="monday">Monday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="tuesday" id="tuesday">
+            <input class="day-off__input" type="checkbox" name="tuesday" id="tuesday" value="2">
             <label for="tuesday">Tuesday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="wednesday" id="wednesday">
+            <input class="day-off__input" type="checkbox" name="wednesday" id="wednesday" value="3">  
             <label for="wednesday">Wednesday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="thursday" id="thursday">
+            <input class="day-off__input" type="checkbox" name="thursday" id="thursday" value="4"> 
             <label for="thursday">Thursday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="friday" id="friday">
+            <input class="day-off__input" type="checkbox" name="friday" id="friday" value="5"> 
             <label for="friday">Friday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="saturday" id="saturday">
+            <input class="day-off__input" type="checkbox" name="saturday" id="saturday" value="6">
             <label for="saturday">Saturday</label>
           </div>
           <div class="day-off">
-            <input type="checkbox" name="sunday" id="sunday">
+            <input class="day-off__input" type="checkbox" name="sunday" id="sunday" value="0">
             <label for="sunday">Sunday</label>
           </div>
         </div>
@@ -91,8 +91,7 @@
         </div>
         <label for="schedule">Your 100DaysOfCode Challenge Schedule:</label>
         <div class="textarea-wrapper">
-          <textarea class="schedule" id="schedule" name="schedule" rows="5" cols="40">
-          </textarea>
+          <textarea class="schedule" id="schedule" name="schedule" rows="5" cols="40" readonly></textarea>
         </div>
       </main>
       <!-- End main -->

@@ -3,28 +3,40 @@
 // ------------------------------------------
 const datePicker = document.getElementById('start');
 const scheduleButton = document.getElementById('schedule-button');
-// ------------------------------------------
-//* #### Global Values ####
-// ------------------------------------------
-// get initial date on page load
-let startDate = new Date(datePicker.value);
-// daysOff - contains the index numbers for days off, if any are selected. 
-// 0=sunday, 1=monday,..., 5=friday, 6=saturday
-const daysOff = [0,6] // i.e. sunday's and saturday's off
+const scheduleArea = document.getElementById('schedule');
+
+
 // ------------------------------------------
 //* #### Event Listeners ####
 // ------------------------------------------
-// Get date when a change is made by user
-datePicker.addEventListener('change', function(event) {
-  startDate = new Date(datePicker.value);
-});
 // Make schedule on button click
 scheduleButton.addEventListener('click', scheduleButtonClick = () => {
-  let schedule = makeSchedule(startDate, daysOff);
+  const daysOff = getDaysOff();
+  const startDate = new Date(datePicker.value);
+  const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
 });
+
+
 // ------------------------------------------
 //* #### Functions ####
+// ------------------------------------------
+// func getDaysOff
+// returns an array of integers representing days off in a week.
+// Sunday=0, Monday=1, ..., Saturday=6
+function getDaysOff() {
+  let daysOff = [];
+  // HTMLCollection of all checkbox elements with the class .day-off__input
+  const daysOffInputs = document.getElementsByClassName('day-off__input');
+  // Pass the HTMLCollection as the "this" value to the forEach method to iterate through it.
+  Array.prototype.forEach.call(daysOffInputs, function(dayOff) {
+    if (dayOff.checked) {
+      // Add the corresponding integer of any checked dayOff to the daysOff array
+      daysOff.push(parseInt(dayOff.value));
+    }
+  });
+  return daysOff;
+}
 // ------------------------------------------
 // func incrementDateByDays
 // returns a new incremented date object. Does not mutate passed params.
@@ -72,14 +84,20 @@ function makeSchedule(startDate, daysOff) {
 // Prints each day of the 100DaysOfCode schedule, and their corresponding dates
 // @schedule - array of ascending dates
 function displaySchedule(schedule) {
+  // Clear the text area
+  scheduleArea.value="";
+  // Add each day from the schedule to the text area
   if (schedule.length !== 0) {
     schedule.forEach((date, index) => {
       const day = index + 1;
       const dateString = date.toDateString();
-      console.log(`Day ${day} - ${dateString}`);
+      const displayDate = `Day ${day} - ${dateString}`;
+      scheduleArea.value += `${displayDate}\n`;
     });
   }
 }
+
+
 // ------------------------------------------
 //* ####### TESTS #######
 // ------------------------------------------
