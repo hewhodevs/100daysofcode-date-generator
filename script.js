@@ -1,8 +1,31 @@
-const startDate = new Date("2021-07-27"); // Tuesday 27-7-2021
+// ------------------------------------------
+//* #### Page elements ####
+// ------------------------------------------
+const datePicker = document.getElementById('start');
+const scheduleButton = document.getElementById('schedule-button');
+// ------------------------------------------
+//* #### Global Values ####
+// ------------------------------------------
+// get initial date on page load
+let startDate = new Date(datePicker.value);
 // daysOff - contains the index numbers for days off, if any are selected. 
 // 0=sunday, 1=monday,..., 5=friday, 6=saturday
 const daysOff = [0,6] // i.e. sunday's and saturday's off
-
+// ------------------------------------------
+//* #### Event Listeners ####
+// ------------------------------------------
+// Get date when a change is made by user
+datePicker.addEventListener('change', function(event) {
+  startDate = new Date(datePicker.value);
+});
+// Make schedule on button click
+scheduleButton.addEventListener('click', scheduleButtonClick = () => {
+  let schedule = makeSchedule(startDate, daysOff);
+  displaySchedule(schedule);
+});
+// ------------------------------------------
+//* #### Functions ####
+// ------------------------------------------
 // func incrementDateByDays
 // returns a new incremented date object. Does not mutate passed params.
 function incrementDateByDays(date, daysIncrement) {
@@ -11,7 +34,7 @@ function incrementDateByDays(date, daysIncrement) {
   nextDate.setDate(nextDate.getDate() + daysIncrement);
   return nextDate;
 }
-
+// ------------------------------------------
 // func findNextValidDate
 // finds the next valid date that is not a day off, and occurs after the previous date.
 // @prevDate - Date object containing the previous date
@@ -25,7 +48,7 @@ function findNextValidDate(prevDate, daysOff) {
   }
   return nextDate;
 }
-
+// ------------------------------------------
 // func makeSchedule
 // creates an array of 100 dates
 // @startDate - a date object specifying start date of YYYY-MM-DD
@@ -44,7 +67,7 @@ function makeSchedule(startDate, daysOff) {
   }
   return schedule;
 }
-
+// ------------------------------------------
 // func displaySchedule
 // Prints each day of the 100DaysOfCode schedule, and their corresponding dates
 // @schedule - array of ascending dates
@@ -57,8 +80,9 @@ function displaySchedule(schedule) {
     });
   }
 }
-
+// ------------------------------------------
 //* ####### TESTS #######
+// ------------------------------------------
 //* findNextValidDate() test
 // const nextValidDate = findNextValidDate(new Date("2021-08-13"), daysOff); // should return Monday 2021-08-16
 // console.log(nextValidDate.toDateString());
