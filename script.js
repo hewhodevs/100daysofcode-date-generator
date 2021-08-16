@@ -12,6 +12,10 @@ const scheduleArea = document.getElementById('schedule');
 // Make schedule on button click
 scheduleButton.addEventListener('click', scheduleButtonClick = () => {
   const daysOff = getDaysOff();
+  if (daysOff.length === 7) {
+    scheduleArea.value = "Enjoy your time off!";
+    return;
+  }
   const startDate = new Date(datePicker.value);
   const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
