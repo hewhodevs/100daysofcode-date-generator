@@ -9,13 +9,24 @@ const scheduleArea = document.getElementById('schedule');
 // ------------------------------------------
 //* #### Event Listeners ####
 // ------------------------------------------
-// Make schedule on button click
+// func setTodaysDate
+// Set the date picker to todays date by default once the DOM is loaded
+document.addEventListener('DOMContentLoaded', setTodaysDate = () => {
+  // set date as today's date by default.
+  datePicker.value = formatYYYYMMDD(new Date());
+});
+// ------------------------------------------
+// func scheduleButtonClick
+// triggers the generation of the 100 days of code schedule
 scheduleButton.addEventListener('click', scheduleButtonClick = () => {
+  // check what days off the user had selected, if any
   const daysOff = getDaysOff();
+  // handle case where user selects to have all days off (i.e. not participating essentially).
   if (daysOff.length === 7) {
     scheduleArea.value = "Enjoy your time off!";
     return;
   }
+  // Get their specified start date, generate and display their schedule
   const startDate = new Date(datePicker.value);
   const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
@@ -24,6 +35,22 @@ scheduleButton.addEventListener('click', scheduleButtonClick = () => {
 
 // ------------------------------------------
 //* #### Functions ####
+// ------------------------------------------
+// func formatYYYYMMDD
+// Takes a date object, and returns a string formatted as YYYY/MM/DD
+function formatYYYYMMDD(date) {
+  let utcDate = date.getUTCDate();
+  let month = date.getMonth() + 1; // as getMonth starts from 0 for Jan
+  let year = date.getFullYear();
+  // Add a leading 0 to single digit days / months
+  if (utcDate < 10) {
+    utcDate = `0${utcDate}`;
+  }
+  if (month < 10) {
+    month = `0${month}`
+  }
+  return `${year}-${month}-${utcDate}`;
+}
 // ------------------------------------------
 // func getDaysOff
 // returns an array of integers representing days off in a week.
@@ -43,7 +70,8 @@ function getDaysOff() {
 }
 // ------------------------------------------
 // func incrementDateByDays
-// returns a new incremented date object. Does not mutate passed params.
+// Returns a new date object incremented by the number of days passed
+// Does not mutate the passed date param
 function incrementDateByDays(date, daysIncrement) {
   // dont mutate passed date, make a copy of it
   let nextDate = new Date(date.valueOf());
@@ -113,3 +141,7 @@ function displaySchedule(schedule) {
 // console.log("100DaysOfCode Schedule:")
 // const schedule = makeSchedule(startDate, daysOff);
 // displaySchedule(schedule);
+
+//* formatYYYYMMDD test
+// const today = formatYYYYMMDD(new Date('August 2, 2021 23:15:30 GMT+11:00'));
+// console.log(today); // should return 2021/08/02
