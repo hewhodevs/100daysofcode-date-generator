@@ -3,6 +3,9 @@ body {
   font-size: 16px;
   background-color: #f8f8ff;
 }
+h1 {
+  font-size: 1.8rem;
+}
 .start-date__input {
   font-size: 1rem;
 }
@@ -15,6 +18,12 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   background-color: #FFFFFF;
+}
+.day-off {
+  padding: 3px;
+  margin: 2px;
+}
+.day-off__input {
 }
 .schedule {
   margin-top: 10px;
