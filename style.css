@@ -19,9 +19,61 @@ h1 {
   font-size: 1rem;
   background-color: #FFFFFF;
 }
+.days-off {
+  display: flex;
+}
 .day-off {
-  padding: 3px;
-  margin: 2px;
+  /* container */
+  height: 30px;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid grey;
+}
+/* modifier class added when the day-off is clicked */
+.day-off--enabled {
+  font-weight: bold;
+  background-color: #e6e6e6;
+  color: #0077EE;
+}
+/* curve the borders of the first and last days */
+.monday {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.sunday {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.day-off__input {
+  /* make default input see through */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: none;
+  user-select: none;
+}
+.day-off__input:checked + .day-off__label {
+  font-weight: bold;
+  background-color: #e6e6e6;
+  color: #0077EE;
+}
+.day-off__label {
+  /* position label relative to the input container */
+  position: absolute;
+  /* make the label fill the container so we can center it */
+  width: 100%;
+  /* start the label from an absolute position relative to the
+  parent .day-off container */
+  top: 0;
+  left: 0;
+  /* matching line height to height for center center day labels */
+  line-height: 30px;
+  text-align: center;
+  /* prevent label text from being hightlighted */
+  user-select: none;
 }
 .schedule {
   margin-top: 10px;
