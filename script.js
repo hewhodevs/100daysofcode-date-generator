@@ -4,6 +4,8 @@
 const datePicker = document.getElementById('start');
 const scheduleButton = document.getElementById('schedule-button');
 const scheduleArea = document.getElementById('schedule');
+// css class used in the getDaysOff function to get the HTMLCollection of checkboxes
+const checkBoxClassName = "item__checkbox";
 
 
 // ------------------------------------------
@@ -58,7 +60,7 @@ function formatYYYYMMDD(date) {
 function getDaysOff() {
   let daysOff = [];
   // HTMLCollection of all checkbox elements with the class .day-off__input
-  const daysOffInputs = document.getElementsByClassName('day-off__input');
+  const daysOffInputs = document.getElementsByClassName(checkBoxClassName);
   // Pass the HTMLCollection as the "this" value to the forEach method to iterate through it.
   Array.prototype.forEach.call(daysOffInputs, function(dayOff) {
     if (dayOff.checked) {

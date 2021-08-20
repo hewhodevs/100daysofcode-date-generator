@@ -1,3 +1,9 @@
+:root {
+  /* multi-select days off menu variables */
+  --multiselect-height: 30px;
+  --item-padding-leftright: 5px;
+  --item-background-color: #FFFFFF;
+}
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -19,33 +25,30 @@ h1 {
   font-size: 1rem;
   background-color: #FFFFFF;
 }
-.days-off {
+/* start days off multi-select component styles */
+.multi-select {
   display: flex;
+  height: var(--multiselect-height);
+  border: 1px solid grey;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--item-background-color);
 }
-.day-off {
+.multi-select__item {
   /* container */
-  height: 30px;
+  height: var(--multiselect-height);
+  width: auto;
   flex-grow: 1;
   position: relative;
   overflow: hidden;
-  border: 1px solid grey;
+  border-right: 1px solid grey;
 }
-/* modifier class added when the day-off is clicked */
-.day-off--enabled {
-  font-weight: bold;
-  background-color: #e6e6e6;
-  color: #0077EE;
+.multi-select__item:last-child {
+  /* remove right border on last child
+  to prevent double up with container border */
+  border: none;
 }
-/* curve the borders of the first and last days */
-.monday {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.sunday {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.day-off__input {
+.item__checkbox {
   /* make default input see through */
   height: 100%;
   width: 100%;
@@ -55,26 +58,24 @@ h1 {
   display: none;
   user-select: none;
 }
-.day-off__input:checked + .day-off__label {
-  font-weight: bold;
+.item__checkbox:checked + .item__label {
+  /* font-weight: bold; */
   background-color: #e6e6e6;
   color: #0077EE;
 }
-.day-off__label {
-  /* position label relative to the input container */
-  position: absolute;
-  /* make the label fill the container so we can center it */
-  width: 100%;
-  /* start the label from an absolute position relative to the
-  parent .day-off container */
-  top: 0;
-  left: 0;
+.item__label {
+  display: block;
+  height: 100%;
+  padding: 0 var(--item-padding-leftright);
+  box-sizing: border-box;
   /* matching line height to height for center center day labels */
-  line-height: 30px;
+  line-height: var(--multiselect-height);
   text-align: center;
   /* prevent label text from being hightlighted */
   user-select: none;
 }
+/* end days off multi select component styles */
+
 .schedule {
   margin-top: 10px;
   font-size: 1rem;
