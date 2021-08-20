@@ -75,13 +75,18 @@ h1 {
   margin-top: 10px;
 }
 /* end days off multi select component styles */
-.schedule__button {
+.schedule__buttons {
   width: 100%;
   padding: 10px;
-  margin: 40px 0 10px 0;
+  margin: 5px 0;
   border-radius: 5px;
   font-size: 1rem;
   background-color: #FFFFFF;
+}
+.schedule-button {
+  color: #FFFFFF;
+  background-color: #0077EE;
+  border: 1px solid #0077EE;
 }
 .schedule__label {
   display: none;
@@ -90,4 +95,10 @@ h1 {
   font-size: 1rem;
   max-width: 100%;
   box-sizing: border-box;
+}
+.clear-button {
+  color: #FFFFFF;
+  font-weight: 800;
+  background-color: #ff2929;
+  border: 1px solid #ff2929
 }
