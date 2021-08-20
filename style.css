@@ -15,15 +15,8 @@ h1 {
 .start-date__input {
   font-size: 1rem;
 }
-.button-wrapper {
-  margin: 20px 0px;
-}
-.button-wrapper > button {
-  padding: 10px;
-  margin: 5px 0px;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: #FFFFFF;
+.rdo-heading {
+  margin-top: 40px;
 }
 /* start days off multi-select component styles */
 .multi-select {
@@ -74,10 +67,22 @@ h1 {
   /* prevent label text from being hightlighted */
   user-select: none;
 }
-/* end days off multi select component styles */
-
 .schedule {
   margin-top: 10px;
+}
+/* end days off multi select component styles */
+.schedule__button {
+  width: 100%;
+  padding: 10px;
+  margin: 40px 0 10px 0;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+}
+.schedule__label {
+  display: none;
+}
+.schedule__textarea {
   font-size: 1rem;
   max-width: 100%;
   box-sizing: border-box;

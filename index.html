@@ -45,54 +45,55 @@
       <!-- End header -->
       <!-- Start main -->
       <main>
-        <!-- Start .start-date -->
-        <div class="start-date">
-          <label class="start-date__label" for="start">Start date:</label>
-          <input class="start-date__input" type="date" id="start" name="start"
-                value="2021-08-16"
-                min="2020-01-01" max="2030-12-31">
-        </div>
-        <!-- End .start-date -->
-        <h2>Taking rostered days off?</h2>
-        <!-- Start .days-off -->
-        <div id="days-off" class="multi-select">
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="monday" id="monday" value="1">
-            <label class="item__label" for="monday">Mon</label>
+        <div class="scheduler-component">
+          <!-- Start .start-date -->
+          <div class="start-date">
+            <label class="start-date__label" for="start">Start date:</label>
+            <input class="start-date__input" type="date" id="start" name="start"
+                  value="2021-08-16"
+                  min="2020-01-01" max="2030-12-31">
           </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="tuesday" id="tuesday" value="2">
-            <label class="item__label" for="tuesday">Tue</label>
+          <!-- End .start-date -->
+          <h2 class="rdo-heading">Taking rostered days off?</h2>
+          <!-- Start .days-off -->
+          <div id="days-off" class="multi-select">
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="monday" id="monday" value="1">
+              <label class="item__label" for="monday">Mon</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="tuesday" id="tuesday" value="2">
+              <label class="item__label" for="tuesday">Tue</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="wednesday" id="wednesday" value="3">
+              <label class="item__label" for="wednesday">Wed</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="thursday" id="thursday" value="4">
+              <label class="item__label" for="thursday">Thur</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="friday" id="friday" value="5">
+              <label class="item__label" for="friday">Fri</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="saturday" id="saturday" value="6">
+              <label class="item__label" for="saturday">Sat</label>
+            </div>
+            <div class="multi-select__item">
+              <input class="item__checkbox" type="checkbox" name="sunday" id="sunday" value="0">
+              <label class="item__label" for="sunday">Sun</label>
+            </div>
           </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="wednesday" id="wednesday" value="3">  
-            <label class="item__label" for="wednesday">Wed</label>
+          <!-- End .days-off -->
+          <div class="schedule">
+            <button id="schedule-button" class="schedule__button">Generate Schedule</button>
+            <label for="schedule" class="schedule__label">Schedule</label>
+            <div class="textarea-wrapper">
+              <textarea class="schedule__textarea" id="schedule" name="schedule" rows="5" cols="40" readonly></textarea>
+            </div>
           </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="thursday" id="thursday" value="4"> 
-            <label class="item__label" for="thursday">Thur</label>
-          </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="friday" id="friday" value="5"> 
-            <label class="item__label" for="friday">Fri</label>
-          </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="saturday" id="saturday" value="6">
-            <label class="item__label" for="saturday">Sat</label>
-          </div>
-          <div class="multi-select__item">
-            <input class="item__checkbox" type="checkbox" name="sunday" id="sunday" value="0">
-            <label class="item__label" for="sunday">Sun</label>
-          </div>
-        </div>
-        <!-- End .days-off -->
-        <div class="button-wrapper">
-          <button id="schedule-button">Generate Schedule</button>
-        </div>
-        <h2>Your 100DaysOfCode Schedule</h2>
-        <label for="schedule">Schedule</label>
-        <div class="textarea-wrapper">
-          <textarea class="schedule" id="schedule" name="schedule" rows="5" cols="40" readonly></textarea>
         </div>
       </main>
       <!-- End main -->
