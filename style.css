@@ -13,11 +13,14 @@ body {
 h1 {
   font-size: 1.8rem;
 }
+.start-date {
+  margin-top: 30px;
+}
 .start-date__input {
   font-size: 1rem;
 }
 .rdo-heading {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 /* start days off multi-select component styles */
 .multi-select {
