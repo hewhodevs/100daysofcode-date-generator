@@ -101,5 +101,17 @@ h1 {
   color: #FFFFFF;
   font-weight: 800;
   background-color: #ff2929;
-  border: 1px solid #ff2929
+  border: 1px solid #ff2929;
+}
+
+/* tablet and desktop styles */
+@media only screen and (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .scheduler-component {
+    max-width: 350px;
+  }
 }
