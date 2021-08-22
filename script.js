@@ -4,6 +4,7 @@
 const datePicker = document.getElementById('start');
 const scheduleButton = document.getElementById('schedule-button');
 const scheduleArea = document.getElementById('schedule__textarea');
+const copyButton = document.getElementById('copy-button');
 const clearButton = document.getElementById('clear-button');
 // css class used in the getDaysOff function to get the HTMLCollection of checkboxes
 const checkBoxClassName = "item__checkbox";
@@ -39,6 +40,21 @@ scheduleButton.addEventListener('click', scheduleButtonClick = () => {
   // generate and display their schedule
   const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
+});
+// ------------------------------------------
+// func copyTextArea
+// If textarea not empty, copy the contents to the
+// users clipboard if permitted
+// refer to https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
+copyButton.addEventListener('click', copyTextArea = () => {
+  const schedule = scheduleArea.value;
+  if (schedule !== "") {
+    navigator.clipboard.writeText(schedule).then(function() {
+      // clipboard succsssfully set
+    }, function() {
+      // clipboard write failed
+    })
+  }
 });
 // ------------------------------------------
 // func clearTextArea
