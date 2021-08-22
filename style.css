@@ -96,6 +96,8 @@ h1 {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 .clear-button {
   color: #FFFFFF;
@@ -113,5 +115,8 @@ h1 {
   }
   .scheduler-component {
     max-width: 350px;
+  }
+  .schedule__textarea {
+    height: 350px;
   }
 }
