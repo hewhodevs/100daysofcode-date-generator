@@ -8,6 +8,7 @@
   --generate-text-color: #FFFFFF;
   --button-fontweight: 400;
   --clear-button-color: #B6000F;
+  --firacode: 'Fira Code', monospace;
 }
 body {
   font-family: var(--font-family);
@@ -95,6 +96,7 @@ h1 {
 }
 .schedule__textarea {
   font-size: 1rem;
+  font-family: var(--firacode);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;

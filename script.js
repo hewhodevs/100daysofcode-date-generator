@@ -22,15 +22,21 @@ document.addEventListener('DOMContentLoaded', setTodaysDate = () => {
 // func scheduleButtonClick
 // triggers the generation of the 100 days of code schedule
 scheduleButton.addEventListener('click', scheduleButtonClick = () => {
+  // Get their specified start date
+  let startDate = new Date(datePicker.value);
   // check what days off the user had selected, if any
   const daysOff = getDaysOff();
   // handle case where user selects to have all days off (i.e. not participating essentially).
   if (daysOff.length === 7) {
     scheduleArea.value = "Enjoy your time off!";
+    // break out, as user does not need a schedule
     return;
   }
-  // Get their specified start date, generate and display their schedule
-  const startDate = new Date(datePicker.value);
+  // If our start day is in our days off, keep incrementing until a valid start date is found
+  while(daysOff.includes(startDate.getDay())) {
+    startDate = incrementDateByDays(startDate, 1);
+  }
+  // generate and display their schedule
   const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
 });
@@ -131,7 +137,11 @@ function displaySchedule(schedule) {
     schedule.forEach((date, index) => {
       const day = index + 1;
       const dateString = date.toDateString();
-      const displayDate = `Day ${day} - ${dateString}`;
+      let displayDate = `Day ${day}:\t ${dateString}`;
+      // altered string for alignment of last day entry
+      if (index === 99) {
+        displayDate = `Day ${day}: ${dateString}`;
+      }
       scheduleArea.value += `${displayDate}\n`;
     });
   }
