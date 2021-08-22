@@ -88,9 +88,6 @@ h1 {
   background-color: #0077EE;
   border: 1px solid #0077EE;
 }
-.schedule__label {
-  display: none;
-}
 .schedule__textarea {
   font-size: 1rem;
   width: 100%;
