@@ -4,7 +4,7 @@
   --item-padding-leftright: 5px;
   --item-background-color: #FFFFFF;
   --font-family: 'Roboto', sans-serif;
-  --generate-button-color: #0040E0;
+  --generate-button-color: #000b5a;
   --generate-text-color: #FFFFFF;
   --button-fontweight: 400;
   --clear-button-color: #B6000F;
@@ -82,14 +82,15 @@ h1 {
 /* end days off multi select component styles */
 .schedule__buttons {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   margin: 5px 0;
   border-radius: 5px;
   font-size: 1rem;
+  font-weight: 700;
   background-color: #FFFFFF;
+  cursor: pointer;
 }
 .schedule-button {
-  font-weight: var(--button-fontweight);
   color: var(--generate-text-color);
   background-color: var(--generate-button-color);
   border: 1px solid var(--generate-button-color);
@@ -103,8 +104,18 @@ h1 {
   border: 1px solid black;
   border-radius: 5px;
 }
+.copyclear-wrapper {
+  display: flex;
+}
+.copy-button {
+  flex-grow: 1;
+  margin-right: 5px;
+  border: 1px solid #000b5a;
+  background-color: transparent;
+}
 .clear-button {
-  font-weight: var(--button-fontweight);
+  flex-grow: 1;
+  margin-left: 5px;
   color: #FFFFFF;
   background-color: var(--clear-button-color);
   border: 1px solid var(--clear-button-color);
@@ -137,5 +148,8 @@ h1 {
   }
   .schedule__textarea {
     height: 350px;
+  }
+  .schedule__buttons:hover {
+    filter: brightness(1.2);
   }
 }
