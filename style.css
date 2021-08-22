@@ -109,6 +109,21 @@ h1 {
   background-color: var(--clear-button-color);
   border: 1px solid var(--clear-button-color);
 }
+/*
+  Refer to W3C:
+  https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements
+  Used here to hide the textarea label
+*/
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
 /* tablet and desktop styles */
 @media only screen and (min-width: 768px) {
