@@ -3,7 +3,7 @@
 // ------------------------------------------
 const datePicker = document.getElementById('start');
 const scheduleButton = document.getElementById('schedule-button');
-const scheduleArea = document.getElementById('schedule');
+const scheduleArea = document.getElementById('schedule__textarea');
 const clearButton = document.getElementById('clear-button');
 // css class used in the getDaysOff function to get the HTMLCollection of checkboxes
 const checkBoxClassName = "item__checkbox";
