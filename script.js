@@ -47,17 +47,17 @@ clearButton.addEventListener('click', clearTextArea = () => {
 // func formatYYYYMMDD
 // Takes a date object, and returns a string formatted as YYYY/MM/DD
 function formatYYYYMMDD(date) {
-  let utcDate = date.getUTCDate();
+  let dayOfMonth = date.getDate();
   let month = date.getMonth() + 1; // as getMonth starts from 0 for Jan
   let year = date.getFullYear();
   // Add a leading 0 to single digit days / months
-  if (utcDate < 10) {
-    utcDate = `0${utcDate}`;
+  if (dayOfMonth < 10) {
+    dayOfMonth = `0${dayOfMonth}`;
   }
   if (month < 10) {
     month = `0${month}`
   }
-  return `${year}-${month}-${utcDate}`;
+  return `${year}-${month}-${dayOfMonth}`;
 }
 // ------------------------------------------
 // func getDaysOff
