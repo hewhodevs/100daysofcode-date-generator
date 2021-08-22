@@ -94,8 +94,12 @@
           <div class="schedule">
             <button id="schedule-button" class="schedule__buttons schedule-button">Generate Schedule</button>
             <!-- Start .schedule__textarea -->
-            <label for="schedule__textarea" class="schedule__label visuallyhidden">Schedule</label>
-            <textarea id="schedule__textarea" class="schedule__textarea" name="schedule__textarea" rows="8" cols="40" readonly></textarea>
+            <div class="textarea-wrapper">
+              <div class="schedule__label-wrapper">
+                <label for="schedule__textarea" class="schedule__label visuallyhidden">Schedule</label>
+              </div>
+              <textarea id="schedule__textarea" class="schedule__textarea" name="schedule__textarea" rows="8" cols="40" readonly></textarea>
+            </div>
             <!-- End .schedule__textarea -->
             <button class="schedule__buttons">Copy</button>
             <button id="clear-button" class="schedule__buttons clear-button">Clear</button>
