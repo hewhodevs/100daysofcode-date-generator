@@ -40,7 +40,7 @@ h1 {
 .multi-select__item {
   /* container */
   height: var(--multiselect-height);
-  width: auto;
+  width: 50px;
   flex-grow: 1;
   position: relative;
   overflow: hidden;
