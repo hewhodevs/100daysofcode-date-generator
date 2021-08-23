@@ -166,6 +166,4 @@ h1 {
   .schedule__buttons:hover:enabled {
     filter: brightness(1.2);
   }
-  .schedule-button:hover:enabled {
-  }
 }
