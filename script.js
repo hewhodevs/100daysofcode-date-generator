@@ -18,29 +18,35 @@ const checkBoxClassName = "item__checkbox";
 document.addEventListener('DOMContentLoaded', setTodaysDate = () => {
   // set date as today's date by default.
   datePicker.value = formatYYYYMMDD(new Date());
+  // disable copy & clear buttons by default as nothing to copy / clear initially
+  enableCopyClear(false);
 });
+
 // ------------------------------------------
 // func scheduleButtonClick
 // triggers the generation of the 100 days of code schedule
 scheduleButton.addEventListener('click', scheduleButtonClick = () => {
-  // Get their specified start date
+  // Get the specified start date
   let startDate = new Date(datePicker.value);
   // check what days off the user had selected, if any
   const daysOff = getDaysOff();
-  // handle case where user selects to have all days off (i.e. not participating essentially).
+  // handle case - where user selects to have all days off (i.e. not participating essentially).
   if (daysOff.length === 7) {
     scheduleArea.value = "Enjoy your time off!";
     // break out, as user does not need a schedule
     return;
   }
-  // If our start day is in our days off, keep incrementing until a valid start date is found
+  // handle case - If our start day is in our days off, keep incrementing until a valid start date is found
   while(daysOff.includes(startDate.getDay())) {
     startDate = incrementDateByDays(startDate, 1);
   }
   // generate and display their schedule
   const schedule = makeSchedule(startDate, daysOff);
   displaySchedule(schedule);
+  // enable copy clear buttons
+  enableCopyClear(true);
 });
+
 // ------------------------------------------
 // func copyTextArea
 // If textarea not empty, copy the contents to the
@@ -56,15 +62,26 @@ copyButton.addEventListener('click', copyTextArea = () => {
     })
   }
 });
+
 // ------------------------------------------
 // func clearTextArea
 // clears the text area schedule when the clear button is clicked
 clearButton.addEventListener('click', clearTextArea = () => {
   scheduleArea.value = "";
+  enableCopyClear(false);
 })
+
 
 // ------------------------------------------
 //* #### Functions ####
+// ------------------------------------------
+// func enableCopyClear
+// toggle enabling / disabling the copy clear buttons
+function enableCopyClear(bool) {
+  copyButton.disabled = !bool;
+  clearButton.disabled = !bool;
+}
+
 // ------------------------------------------
 // func formatYYYYMMDD
 // Takes a date object, and returns a string formatted as YYYY/MM/DD
@@ -81,6 +98,7 @@ function formatYYYYMMDD(date) {
   }
   return `${year}-${month}-${dayOfMonth}`;
 }
+
 // ------------------------------------------
 // func getDaysOff
 // returns an array of integers representing days off in a week.
@@ -98,6 +116,7 @@ function getDaysOff() {
   });
   return daysOff;
 }
+
 // ------------------------------------------
 // func incrementDateByDays
 // Returns a new date object incremented by the number of days passed
@@ -108,6 +127,7 @@ function incrementDateByDays(date, daysIncrement) {
   nextDate.setDate(nextDate.getDate() + daysIncrement);
   return nextDate;
 }
+
 // ------------------------------------------
 // func findNextValidDate
 // finds the next valid date that is not a day off, and occurs after the previous date.
@@ -122,6 +142,7 @@ function findNextValidDate(prevDate, daysOff) {
   }
   return nextDate;
 }
+
 // ------------------------------------------
 // func makeSchedule
 // creates an array of 100 dates
@@ -141,6 +162,7 @@ function makeSchedule(startDate, daysOff) {
   }
   return schedule;
 }
+
 // ------------------------------------------
 // func displaySchedule
 // Prints each day of the 100DaysOfCode schedule, and their corresponding dates

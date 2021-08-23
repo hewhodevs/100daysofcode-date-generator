@@ -112,7 +112,7 @@ h1 {
 .copy-button {
   flex-grow: 1;
   margin-right: 5px;
-  border: 1px solid #000b5a;
+  border: 2px solid #000b5a;
   background-color: transparent;
 }
 .clear-button {
@@ -120,7 +120,19 @@ h1 {
   margin-left: 5px;
   color: #FFFFFF;
   background-color: var(--clear-button-color);
-  border: 1px solid var(--clear-button-color);
+  border: 2px solid var(--clear-button-color);
+}
+/* disabled buttons styles */
+.schedule__buttons:disabled {
+  cursor: default;
+}
+.copy-button:disabled {
+  color: #a0a0a0;
+  border: 2px solid #a0a0a0;
+}
+.clear-button:disabled {
+  background-color: #a0a0a0;
+  border: 2px solid #a0a0a0;
 }
 /*
   Refer to W3C:
@@ -151,7 +163,9 @@ h1 {
   .schedule__textarea {
     height: 350px;
   }
-  .schedule__buttons:hover {
+  .schedule__buttons:hover:enabled {
     filter: brightness(1.2);
+  }
+  .schedule-button:hover:enabled {
   }
 }
