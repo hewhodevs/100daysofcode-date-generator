@@ -52,13 +52,20 @@ scheduleButton.addEventListener('click', scheduleButtonClick = () => {
 // If textarea not empty, copy the contents to the
 // users clipboard if permitted
 // refer to https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
-copyButton.addEventListener('click', copyTextArea = () => {
+copyButton.addEventListener('click', copyTextArea = (clicked) => {
+  // get the textarea content and copy to clipboard if permitted
   const schedule = scheduleArea.value;
   if (schedule !== "") {
     navigator.clipboard.writeText(schedule).then(function() {
       // clipboard succsssfully set
+      // Change the button text to alert the user the copy was successful
+      copyButton.textContent = 'Copied!';
+      // after 1 second, revert text back to "Copy"
+      setTimeout(function() {
+        copyButton.textContent = "Copy";
+      }, 1000);
     }, function() {
-      // clipboard write failed
+      // clipboard write failed, handle accordingly.
     })
   }
 });
